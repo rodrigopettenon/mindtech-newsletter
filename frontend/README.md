@@ -1,133 +1,150 @@
 
-```markdown
-# 🎨 Front-end Newsletter Mindtech
+---
 
-Aplicação React/TypeScript para sistema de inscrição em newsletter.
+````markdown
+# 📰 Mindtech Newsletter - Frontend
 
-## 🚀 Tecnologias e Versões
-- **React 19.2.0** ⚡ (versão mais recente)
-- **TypeScript 4.9.5**
-- **React DOM 19.2.0**
-- **React Scripts 5.0.1**
-- **CSS Modules** para estilização
-- **Fetch API** para comunicação com back-end
+Interface web desenvolvida em **React + TypeScript** para o sistema de inscrição e descadastro de newsletter da **Mindtech**.  
+Este projeto consome as APIs do back-end e oferece uma interface moderna, responsiva e fiel ao design proposto.
 
-## 📁 Estrutura do Projeto
-```
-frontend/
-├── public/                 # Arquivos públicos estáticos
-├── src/                   # Código fonte principal
-│   ├── assets/           # Imagens, fontes e recursos visuais
-│   ├── components/       # Componentes React reutilizáveis
-│   ├── services/         # Integração com API back-end
-│   ├── styles/           # Arquivos CSS modularizados
-│   ├── types/            # Definições TypeScript
-│   └── App.tsx           # Componente raiz da aplicação
-├── build/                # Build de produção (gerado)
-├── package.json          # Dependências e scripts
-└── tsconfig.json         # Configuração TypeScript
-```
+---
 
-## 🛠️ Como Executar
+## 🚀 Tecnologias Utilizadas
 
-### 1. Instalar Dependências
+- **React 19**
+- **TypeScript**
+- **CSS Modules**
+- **React Testing Library**
+- **Node.js / npm**
+
+---
+
+## 🧰 Pré-requisitos
+
+Antes de iniciar o projeto, verifique se você tem os seguintes itens instalados:
+
+- [Node.js (versão LTS 18 ou superior)](https://nodejs.org/en/download)
+- [npm](https://www.npmjs.com/get-npm) (instalado automaticamente com o Node.js)
+- Back-end da aplicação rodando localmente (porta padrão: `8080`)
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 1️⃣ Clonar o repositório
+
 ```bash
-cd frontend
+git clone https://github.com/seu-usuario/newsletter-frontend.git
+````
+
+### 2️⃣ Acessar o diretório
+
+```bash
+cd newsletter-frontend
+```
+
+### 3️⃣ Instalar as dependências
+
+```bash
 npm install
 ```
 
-### 2. Executar em Modo Desenvolvimento
+### 4️⃣ Executar o projeto
+
 ```bash
 npm start
 ```
-A aplicação estará disponível em: **http://localhost:3000**
 
-### 3. Outros Scripts Disponíveis
-```bash
-npm test          # Executar testes
-npm run build     # Gerar build de produção
+A aplicação será iniciada automaticamente em:
+👉 **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+## 🔄 Integração com o Back-end
+
+Por padrão, o front-end se comunica com a API do back-end através do endpoint:
+
+```
+http://localhost:8080/mindtech-newsletter
 ```
 
-## ⚠️ Pré-requisitos
-- **Back-end Spring Boot** rodando em `http://localhost:8080`
-- **Node.js 16+** (compatível com React 19)
-- **npm** ou **yarn** para gerenciamento de dependências
+Caso o back-end esteja rodando em outra porta ou domínio, altere o valor no arquivo:
 
-## 🎯 Funcionalidades Implementadas
+```
+src/services/api.ts
+```
 
-### Inscrição
-- ✅ Formulário de inscrição com validação de email
-- ✅ Integração com endpoint `POST /mindtech-newsletter/inscricao`
-- ✅ Tela de confirmação após inscrição bem-sucedida
-- ✅ Tratamento de emails duplicados
-
-### Cancelamento
-- ✅ Formulário de cancelamento com validação
-- ✅ Integração com endpoint `DELETE /mindtech-newsletter/cancelar-inscricao`
-- ✅ Feedback visual para todos os cenários
-
-### Experiência do Usuário
-- ✅ Design fiel às especificações da Mindtech
-- ✅ Navegação entre telas intuitiva
-- ✅ Modal de alerta para feedback
-- ✅ Validações em tempo real
-- ✅ Interface responsiva
-
-## 🔧 Desenvolvimento
-
-### Estrutura de Componentes
-- `FormularioInscricao` - Formulário principal de inscrição
-- `FormularioDescadastro` - Formulário de cancelamento
-- `TelaConfirmacao` - Tela de sucesso após inscrição
-- `AlertModal` - Modal para feedback visual
-- `App` - Componente principal com navegação
-
-### Integração com API
 ```typescript
-// services/api.ts
-export const apiNewsletter = {
-  async inscrever(email: string): Promise<RespostaInscricao>,
-  async cancelarInscricao(email: string): Promise<RespostaInscricao>
-}
-```
-
-## 🐛 Solução de Problemas
-
-### Erro de Dependências
-```bash
-# Limpar cache e reinstalar
-rm -rf node_modules
-npm install
-```
-
-### Erro de Conexão com Back-end
-- Verificar se back-end está rodando na porta 8080
-- Verificar console do navegador para detalhes do erro
-
-### Porta 3000 Ocupada
-- O React automaticamente oferece usar outra porta (3001, 3002, etc.)
-
-### Build de Produção
-```bash
-npm run build
-# Os arquivos otimizados ficarão na pasta /build
+const BASE_URL = 'http://localhost:8080';
 ```
 
 ---
 
-**Desenvolvido com React 19 e TypeScript para máxima produtividade e segurança de tipos** ✨
-```
+## 🧪 Executar Testes
 
-## ✅ **AGORA COMMITAMOS TUDO:**
+Para rodar os testes automatizados:
 
 ```bash
-cd "C:\Users\Windows11\Desktop\Newsletter Mindtech\projeto-completo"
-git add .
-git commit -m "feat: Documentação completa e profissional
-
-- README específico do back-end com instruções PostgreSQL
-- README específico do front-end com tecnologias exatas
-- README principal com visão geral do projeto
-- Estrutura organizada para fácil execução"
-git push origin main
+npm test
 ```
+
+Isso executará os testes configurados com **React Testing Library**.
+
+---
+
+## 🏗️ Gerar Build de Produção
+
+Para gerar uma versão otimizada para deploy:
+
+```bash
+npm run build
+```
+
+Os arquivos finais serão gerados no diretório `/build`.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+frontend/
+├── build/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── services/
+│   ├── styles/
+│   ├── types/
+│   ├── App.css
+│   ├── App.test.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   ├── index.tsx
+│   ├── logo.svg
+│   ├── react-app-env.d.ts
+│   ├── reportWebVitals.ts
+│   └── setupTests.ts
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── tsconfig.json
+```
+
+---
+
+## 🧑‍💻 Autor
+
+Desenvolvido por **Rodrigo Pettenon**
+🔗 [LinkedIn](https://www.linkedin.com/in/rodrigopettenon)
+📧 [Contato profissional](mailto:rodrigopettenon.dev@gmail.com)
+
+---
+
+## 🏁 Observação Final
+
+> Este projeto foi desenvolvido como parte do teste técnico da **Mindtech**, atendendo aos requisitos de funcionalidade, integração e clareza de documentação.
+
+---
