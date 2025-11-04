@@ -1,0 +1,59 @@
+.App {
+    min-height: 100vh;
+    background: #092456; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #092456; 
+}
+
+.header-app {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid #165CDE;
+}
+
+.navegacao {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-botao {
+    background: transparent;
+    color: #CADDFF;
+    border: 2px solid #165CDE;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-botao:hover {
+    background: rgba(22, 92, 222, 0.2);
+    color: #FFFFFF;
+}
+
+.nav-ativo {
+    background: #165CDE;
+    color: #FFFFFF;
+}
+
+main {
+    padding-top: 100px; 
+    min-height: calc(100vh - 100px);
+}

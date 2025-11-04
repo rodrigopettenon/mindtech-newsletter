@@ -1,0 +1,111 @@
+.confirmacao-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68%;  
+    height: 85%; 
+    background: #000000;
+    border-radius: 25px;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmacao-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(
+        circle,
+        rgba(22, 92, 222, 0.5) 0%,     
+        rgba(22, 92, 222, 0.2) 40%,   
+        transparent 54%
+    );
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.conteudo-confirmacao {
+    position: relative;
+    z-index: 3;
+    text-align: left; 
+    max-width: 500px;
+    padding: 60px 40px;
+    color: white;
+}
+
+
+.icone-confirmacao {
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.icone-check-confirmacao {
+    width: 200px; 
+    height: 200px;
+    filter: brightness(0) saturate(100%) invert(100%);
+    display: inline-block; 
+}
+
+.titulo-confirmacao {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-family: 'Inter', sans-serif;
+    text-align: left; 
+}
+
+
+.mensagem-confirmacao {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #E2E8F0;
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+    text-align: left; 
+}
+
+.rodape-confirmacao {
+    margin: 30px 0;
+    text-align: center; 
+}
+
+.logo-confirmacao {
+    width: 180px;
+    height: auto;
+    opacity: 0.9;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.botao-voltar {
+    background: #165CDE;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    margin-top: 20px;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: fit-content; 
+}
+
+.botao-voltar:hover {
+    background: #1348A8;
+}

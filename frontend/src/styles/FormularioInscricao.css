@@ -1,0 +1,170 @@
+.container-inscricao {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #092456;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+.card-preto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68%;  
+    height: 85%; 
+    background: #000000;
+    border-radius: 25px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.card-preto::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(
+        circle,
+        rgba(22, 92, 222, 0.5) 0%,     
+        rgba(22, 92, 222, 0.2) 40%,   
+        transparent 54%
+    );
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+.imagem-mindtech {
+    position: absolute;
+    top: 70px;
+    right: 120px;  
+    width: 550px;
+    height: auto;
+    z-index: 2;
+}
+
+
+.logo-mindtech {
+    position: absolute;
+    top: 620px;
+    right: 300px;  
+    width: 200px;
+    height: auto;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.conteudo-formulario {
+    position: relative;
+    z-index: 3;
+    padding: 85px 30px 60px 85px;
+    max-width: 550px;
+    margin-left: 50px;
+    color: white;
+}
+
+.titulo-principal {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+    line-height: 1.2;
+}
+
+.descricao {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #E2E8F0;
+    margin-bottom: 28px;
+}
+
+.beneficios {
+    margin-bottom: 30px; /* ↓ Reduzi de 35px para 30px */
+}
+
+.beneficio {
+    display: flex; /* ← NOVO: layout flex para ícone + texto */
+    align-items: flex-start; /* ← NOVO: alinha no topo */
+    margin-bottom: 20px; /* ↓ Reduzi de 20px para 16px */
+    color: #E2E8F0;
+    line-height: 1.4; /* ↓ Reduzi de 1.5 para 1.4 */
+}
+
+.icone-check {
+    width: 27px; /* Tamanho do ícone */
+    height: 27px;
+    margin-right: 7px; /* Espaço entre ícone e texto */
+    margin-top: 9px; /* Alinhamento vertical fino */
+    flex-shrink: 0; /* Impede que o ícone diminua */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1689%) hue-rotate(202deg) brightness(94%) contrast(91%);
+}
+
+.texto-beneficio {
+    flex: 1; /* Ocupa o espaço restante */
+}
+
+.beneficio strong {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+.formulario {
+    margin-top: 30px;
+}
+
+.campo-email {
+    margin-bottom: 25px;
+}
+
+.campo-email label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+}
+
+.campo-email input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #165CDE;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+
+.campo-email input::placeholder {
+    color: #A0AEC0;
+}
+
+.linha-divisoria {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #165CDE 50%, transparent 100%);
+    margin: 25px 0;
+}
+
+.botao-inscrever {
+    width: 100%;
+    background: #165CDE;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.botao-inscrever:hover {
+    background: #1348A8;
+}
