@@ -1,224 +1,219 @@
+---
+
+# 📰 Mindtech Newsletter — Backend
+
+API REST desenvolvida para o sistema de inscrição na newsletter da **Mindtech**.
+O objetivo é permitir que usuários se inscrevam e cancelem suas inscrições por meio de endpoints simples e integráveis com o front-end.
 
 ---
 
-# 📋 **BACK-END NEWSLETTER MINDTECH - GUIA DE INSTALAÇÃO**
+## 🚀 Tecnologias Utilizadas
 
-## 🚀 **PRÉ-REQUISITOS OBRIGATÓRIOS**
+* **Java 17**
+* **Spring Boot 3.4.11**
+* **Maven**
+* **PostgreSQL**
+* **JPA (EntityManager + Native Queries)**
+* **Apache Commons Lang 3**
+* **Spring Validation**
+* **Spring Web**
 
-### **1. Java 17**
+---
+
+## ⚙️ Pré-requisitos de Instalação
+
+> As instruções abaixo partem do zero, para alguém que **ainda não possui nenhum ambiente configurado**.
+
+### 🧩 1. Instalar o Java JDK 17
+
+Baixe e instale o JDK 17 (LTS):
+
+* [Download JDK 17 (Oracle)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+  ou
+* [Download JDK 17 (OpenJDK)](https://adoptium.net/temurin/releases/)
+
+Após instalar, confirme no terminal:
+
 ```bash
-# Verificar se já tem instalado
 java -version
 ```
-**Download:** [Oracle JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) ou [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 
-### **2. PostgreSQL** ⚠️ **OBRIGATÓRIO**
-```bash
-# Verificar se já tem instalado
-psql --version
+Saída esperada:
+
 ```
-**Download:** [PostgreSQL Download](https://www.postgresql.org/download/)
+openjdk version "17.0.x"
+```
 
-### **3. Maven** (já incluído no projeto - `mvnw`)
+---
+
+### 🧰 2. Instalar o Maven
+
+Baixe e instale o Maven:
+🔗 [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
+
+Verifique a instalação:
+
 ```bash
-# Verificar se já tem instalado (opcional)
 mvn -version
 ```
 
 ---
 
-## 🗄️ **CONFIGURAÇÃO DO BANCO DE DADOS**
+### 🗄️ 3. Instalar o PostgreSQL
 
-### **Passo 1: Instalar PostgreSQL**
-- Baixe e instale o PostgreSQL em sua máquina
-- **Anote a senha do usuário `postgres`** durante a instalação
+Baixe e instale o **PostgreSQL**:
 
-### **Passo 2: Criar Banco de Dados**
-```sql
--- Conectar ao PostgreSQL (via pgAdmin ou linha de comando)
-CREATE DATABASE newsletter;
+* [https://www.postgresql.org/download/](https://www.postgresql.org/download/)
+
+Após a instalação:
+
+1. Crie um banco chamado `newsletter`
+2. Defina o usuário e senha padrão:
+
+   * **Usuário:** `postgres`
+   * **Senha:** `root`
+
+Caso use outras credenciais, ajuste no arquivo:
+
+```
+src/main/resources/application.properties
 ```
 
-### **Passo 3: Verificar Conexão**
-```bash
-# Testar conexão (Linux/Mac/Windows)
-psql -h localhost -p 5432 -U postgres -d newsletter
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/newsletter
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
 ```
 
 ---
 
-## 🔧 **CONFIGURAÇÃO DO PROJETO**
+### 💡 4. Instalar uma IDE (opcional)
 
-### **1. Navegar para a pasta do back-end**
-```bash
-cd newsletter-backend
-```
+Você pode utilizar:
 
-### **2. Configurar credenciais do banco** ⚠️ **IMPORTANTE**
-Edite o arquivo `src/main/resources/application.properties`:
+* [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download/)
+* [Spring Tools Suite (STS)](https://spring.io/tools)
 
-```properties
-# ⚠️ ALTERAR A SENHA ABAIXO PARA A SUA SENHA DO POSTGRES!
-spring.datasource.password=SUA_SENHA_DO_POSTGRES_AQUI
-```
-
-**Exemplo:**
-```properties
-spring.datasource.password=minha_senha_123
-```
-
-### **3. Verificar estrutura do projeto**
-```
-newsletter-backend/
-├── src/
-│   └── main/
-│       ├── java/com/mindtech/newsletter/
-│       │   ├── config/     # Configuração CORS
-│       │   ├── controller/ # Endpoints da API
-│       │   ├── service/    # Lógica de negócio
-│       │   ├── repository/ # Acesso ao banco
-│       │   └── model/      # Entidade JPA
-│       └── resources/
-│           └── application.properties
-├── pom.xml
-└── mvnw
-```
+Ou simplesmente rodar o projeto direto pelo terminal.
 
 ---
 
-## 🏃 **EXECUTAR O BACK-END**
+## 🏗️ Executando o Projeto
 
-### **Método 1: Usando Maven Wrapper (RECOMENDADO)**
+### 🔹 Clonar o repositório
+
 ```bash
-# Linux/Mac
-./mvnw spring-boot:run
-
-# Windows
-mvnw.cmd spring-boot:run
+git clone https://github.com/seu-usuario/mindtech-newsletter-backend.git
+cd mindtech-newsletter-backend
 ```
 
-### **Método 2: Usando Maven instalado**
+### 🔹 Compilar o projeto
+
+```bash
+mvn clean install
+```
+
+### 🔹 Executar a aplicação
+
 ```bash
 mvn spring-boot:run
 ```
 
-### **Método 3: Gerar JAR e executar**
-```bash
-# Gerar arquivo JAR
-./mvnw clean package
-
-# Executar JAR
-java -jar target/newsletter-0.0.1-SNAPSHOT.jar
-```
+A API estará disponível em:
+👉 **[http://localhost:8080](http://localhost:8080)**
 
 ---
 
-## ✅ **VERIFICAR SE ESTÁ RODANDO**
+## 📬 Endpoints Principais
 
-### **1. Console deve mostrar:**
-```
-Tomcat started on port 8080
-Started MindtechNewsletterBackendApplication
-```
+|  Método  | Endpoint                                                | Descrição                       |
+| :------: | :------------------------------------------------------ | :------------------------------ |
+|  `POST`  | `/mindtech-newsletter/inscricao`                        | Inscreve um email na newsletter |
+| `DELETE` | `/mindtech-newsletter/cancelar-inscricao?email={email}` | Cancela uma inscrição existente |
 
-### **2. Testar endpoints:**
-```bash
-# Testar se a API responde
-curl http://localhost:8080/mindtech-newsletter/inscricao
-```
+### 🔸 Exemplo de `POST /mindtech-newsletter/inscricao`
 
-### **3. Acessar logs:**
-Verifique os logs no console para confirmar:
-- ✅ Conexão com PostgreSQL estabelecida
-- ✅ Tabelas criadas/atualizadas
-- ✅ Aplicação rodando na porta 8080
+**Request body:**
 
----
-
-## 🛠️ **SOLUÇÃO DE PROBLEMAS**
-
-### **Problema: Erro de conexão com PostgreSQL**
-```bash
-# Verificar se PostgreSQL está rodando
-sudo systemctl status postgresql  # Linux
-# ou verificar serviço PostgreSQL no Windows
-```
-
-### **Problema: "Password authentication failed"**
-- Verificar `application.properties` - senha correta?
-- Testar conexão manual: `psql -U postgres`
-
-### **Problema: Porta 8080 em uso**
-```bash
-# Encontrar processo usando a porta
-netstat -ano | findstr :8080  # Windows
-lsof -i :8080  # Linux/Mac
-```
-
-### **Problema: Dependências Maven**
-```bash
-# Limpar e reinstalar
-./mvnw clean install
-```
-
-### **Problema: Java não encontrado**
-- Verificar `JAVA_HOME` environment variable
-- Verificar se Java 17 está no PATH
-
----
-
-## 📡 **ENDPOINTS DA API**
-
-### **Inscrição**
-```http
-POST http://localhost:8080/mindtech-newsletter/inscricao
-Content-Type: application/json
-
+```json
 {
   "email": "usuario@exemplo.com"
 }
 ```
 
-### **Cancelamento**
-```http
-DELETE http://localhost:8080/mindtech-newsletter/cancelar-inscricao?email=usuario@exemplo.com
+**Response (201):**
+
+```json
+{
+  "timestamp": "2025-11-04T18:30:15Z",
+  "status": 201,
+  "object": {
+    "email": "usuario@exemplo.com",
+    "dataHoraCriacao": "04/11/2025 15:30:15"
+  }
+}
 ```
 
 ---
 
-## 🧪 **EXECUTAR TESTES**
+## 🧱 Estrutura do Projeto
 
-```bash
-# Executar todos os testes
-./mvnw test
-
-# Executar testes com relatório
-./mvnw surefire-report:report
+```
+mindtech-newsletter-backend/
+├── src/main/java/com/mindtech/newsletter/
+│   ├── controller/
+│   │   └── InscricaoController.java
+│   ├── service/
+│   │   └── InscricaoService.java
+│   ├── repository/
+│   │   └── InscricaoRepository.java
+│   ├── model/
+│   │   └── InscricaoModel.java
+│   ├── dto/
+│   │   └── InscricaoDto.java
+│   ├── config/
+│   │   └── CorsConfig.java
+│   ├── exception/
+│   │   └── MindTechErrorException.java
+│   ├── util/
+│   │   ├── LogUtil.java
+│   │   └── EmailUtils.java
+│   └── MindtechNewsletterApplication.java
+├── src/main/resources/
+│   └── application.properties
+└── pom.xml
 ```
 
 ---
 
-## 🔒 **CONFIGURAÇÕES TÉCNICAS**
+## 🧩 Boas Práticas Implementadas
 
-- **Porta:** 8080
-- **Banco:** PostgreSQL
-- **ORM:** JPA/Hibernate
-- **CORS:** Configurado para front-end React
-- **Validações:** Email único, formato válido, tamanho máximo
-
----
-
-## ✅ **CHECKLIST DE VERIFICAÇÃO**
-
-- [ ] PostgreSQL instalado e rodando
-- [ ] Banco `newsletter` criado
-- [ ] Senha atualizada no `application.properties`
-- [ ] Aplicação inicia sem erros
-- [ ] Logs mostram conexão bem-sucedida com banco
-- [ ] API responde na porta 8080
+✅ Validação de email (formato e tamanho)
+✅ Respostas padronizadas (`StandardObjectReturn`)
+✅ Logs de processo, validação, sucesso e erro (`LogUtil`)
+✅ CORS configurado para integração com front-end local
+✅ Camadas bem definidas (`Controller`, `Service`, `Repository`)
+✅ Queries nativas com `EntityManager`
+✅ Tratamento de exceções personalizadas
 
 ---
 
-**Próximo passo:** Configurar o front-end após back-end estar rodando! 🚀
+## 🤝 Integração com o Front-end
+
+O back-end está preparado para aceitar requisições CORS dos seguintes endereços:
+
+* `http://localhost:3000`
+* `http://localhost:5173`
+
+Isso permite integração direta com projetos criados em **React**, **Vite** ou outras ferramentas.
+
+---
+
+## 🧠 Autor
+
+**Rodrigo Pettenon**
+Desenvolvedor Back-end Java
+📧 [[rodrigopettenon.dev@gmail.com](mailto:seu-email@email.com)]
+💼 [linkedin.com/in/rodrigopettenon](https://linkedin.com/in/rodrigopettenon)
 
 ---
