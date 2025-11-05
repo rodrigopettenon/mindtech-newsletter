@@ -1,10 +1,6 @@
-
----
-
-````markdown
 # 📰 Mindtech Newsletter - Frontend
 
-Interface web desenvolvida em **React + TypeScript** para o sistema de inscrição e descadastro de newsletter da **Mindtech**.  
+Interface web desenvolvida em **React + TypeScript** para o sistema de inscrição e descadastro da newsletter da **Mindtech**.  
 Este projeto consome as APIs do back-end e oferece uma interface moderna, responsiva e fiel ao design proposto.
 
 ---
@@ -21,7 +17,7 @@ Este projeto consome as APIs do back-end e oferece uma interface moderna, respon
 
 ## 🧰 Pré-requisitos
 
-Antes de iniciar o projeto, verifique se você tem os seguintes itens instalados:
+Antes de iniciar o projeto, verifique se você possui os seguintes itens instalados:
 
 - [Node.js (versão LTS 18 ou superior)](https://nodejs.org/en/download)
 - [npm](https://www.npmjs.com/get-npm) (instalado automaticamente com o Node.js)
@@ -33,29 +29,39 @@ Antes de iniciar o projeto, verifique se você tem os seguintes itens instalados
 
 ### 1️⃣ Clonar o repositório
 
-```bash
-git clone https://github.com/seu-usuario/newsletter-frontend.git
-````
-
-### 2️⃣ Acessar o diretório
+Caso ainda **não tenha clonado** o projeto principal:
 
 ```bash
-cd newsletter-frontend
+git clone https://github.com/rodrigopettenon/mindtech-newsletter.git
 ```
 
-### 3️⃣ Instalar as dependências
+Em seguida, entre na pasta do front-end:
+
+```bash
+cd mindtech-newsletter/frontend
+```
+
+Se você **já clonou o repositório** anteriormente ao configurar o back-end, basta acessar diretamente a pasta do front:
+
+```bash
+cd frontend
+```
+
+---
+
+### 2️⃣ Instalar as dependências
 
 ```bash
 npm install
 ```
 
-### 4️⃣ Executar o projeto
+### 3️⃣ Executar o projeto
 
 ```bash
 npm start
 ```
 
-A aplicação será iniciada automaticamente em:
+A aplicação será iniciada automaticamente em:  
 👉 **[http://localhost:3000](http://localhost:3000)**
 
 ---
@@ -137,9 +143,9 @@ frontend/
 
 ## 🧑‍💻 Autor
 
-Desenvolvido por **Rodrigo Pettenon**
-🔗 [LinkedIn](https://www.linkedin.com/in/rodrigopettenon)
-📧 [Contato profissional](mailto:rodrigopettenon.dev@gmail.com)
+Desenvolvido por **Rodrigo Pettenon**  
+🔗 [LinkedIn](https://www.linkedin.com/in/rodrigopettenon)  
+📧 [rodrigopettenon.dev@gmail.com](mailto:rodrigopettenon.dev@gmail.com)
 
 ---
 
